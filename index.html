@@ -1,291 +1,242 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#17231f">
-<title>EDt Real Estate — Apartment PDF Studio</title>
-<style>
-:root{--ink:#18231f;--muted:#68736e;--line:#dce3df;--paper:#fff;--bg:#f3f5f3;--accent:#b98b55;--green:#233c32;--soft:#e9eee9;--danger:#a63d32}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input,textarea,select{font:inherit}button{cursor:pointer}.topbar{background:var(--green);color:white;padding:18px max(18px,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;letter-spacing:.12em;font-size:14px}.brand small{display:block;font-weight:500;letter-spacing:.02em;opacity:.7;font-size:11px;margin-top:3px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:650}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn.dark{background:var(--green);color:white;border-color:var(--green)}.btn:disabled{opacity:.45;cursor:not-allowed}
-.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 50px}.intro{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:800;font-size:11px}.intro h1{font-size:clamp(25px,4vw,38px);line-height:1.1;margin:7px 0}.intro p{margin:0;color:var(--muted);max-width:640px}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:20px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden}.panel-head{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.panel-head h2{font-size:16px;margin:0}.panel-body{padding:20px}.section-title{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin:22px 0 12px}.section-title:first-child{margin-top:0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:750;margin-bottom:6px;color:#34413a}input,textarea,select{width:100%;border:1px solid #d6dfd9;border-radius:9px;padding:11px 12px;background:#fff;color:var(--ink);outline:none}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #b98b5520}textarea{min-height:90px;resize:vertical}.hint{font-size:11px;color:var(--muted);margin-top:5px}.upload{border:1.5px dashed #b9c7be;border-radius:13px;padding:18px;text-align:center;background:#f9fbf9}.upload strong{display:block;margin-bottom:4px}.upload input{border:0;padding:8px 0;max-width:100%}.photo-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}.photo{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#f1f3f1}.photo img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}.photo .photo-controls{display:flex;gap:4px;padding:5px}.photo button{flex:1;border:1px solid var(--line);background:#fff;border-radius:6px;font-size:11px;padding:5px 2px}.photo .cover-tag{position:absolute;top:6px;left:6px;background:var(--green);color:#fff;border-radius:5px;padding:3px 5px;font-size:9px;font-weight:800}.empty{font-size:12px;color:var(--muted);padding:12px 0}.preview-sticky{position:sticky;top:14px}.preview{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.cover-preview{min-height:245px;background:linear-gradient(135deg,#253b31,#52685a);color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;isolation:isolate}.cover-preview:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#14251ddd,#14251d45);z-index:-1}.cover-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.cover-brand{font-size:10px;letter-spacing:.18em;font-weight:800}.cover-copy{max-width:85%}.cover-price{color:#f1c995;font-size:13px;font-weight:750}.cover-preview h3{font-size:28px;line-height:1.05;margin:8px 0}.cover-location{font-size:12px;opacity:.9}.preview-content{padding:18px}.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.stat{padding:10px;background:#f3f5f2;border-radius:8px}.stat b{display:block;font-size:14px}.stat span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}.preview h4{margin:17px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.preview p{font-size:12px;color:#4d5952;white-space:pre-wrap;margin:0}.preview-photos{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.preview-photos img{width:100%;height:95px;object-fit:cover;border-radius:6px}.preview-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.status{font-size:12px;color:var(--muted);margin-top:10px;min-height:18px}.footer-note{font-size:11px;color:var(--muted);margin-top:16px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#18231f;color:#fff;padding:11px 15px;border-radius:10px;box-shadow:0 8px 30px #0002;z-index:20;display:none;max-width:90vw;font-size:13px}
-@media(max-width:820px){.layout{grid-template-columns:1fr}.preview-sticky{position:static}.intro{display:block}.intro .top-actions{margin-top:14px}.wrap{padding:20px 12px 36px}.panel-body{padding:15px}.topbar{padding:15px 12px}.cover-preview{min-height:220px}}
-@media(max-width:420px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.photo-list{grid-template-columns:repeat(3,minmax(0,1fr))}.btn{padding:9px 11px}.topbar{align-items:flex-start}.top-actions{justify-content:flex-end}}
-</style>
+<meta name="theme-color" content="#1f3a33">
+<meta name="description" content="OG Apartment PDF Studio - tạo brochure căn hộ tiếng Anh chuyên nghiệp từ thông tin tiếng Việt. Xử lý hoàn toàn trên trình duyệt.">
+<title>OG Apartment PDF Studio</title>
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
+<a class="skip" href="#main">Bỏ qua đến nội dung</a>
 <header class="topbar">
-  <div class="brand">EDt REAL ESTATE<small>APARTMENT PDF STUDIO</small></div>
-  <div class="top-actions">
-    <button class="btn" id="resetBtn" type="button">Clear form</button>
-    <button class="btn primary" id="exportTop" type="button">Export PDF ↓</button>
-  </div>
+  <div class="brand"><span class="brand-name">OG Apartment</span><span class="brand-sub">PDF Studio</span></div>
+  <nav class="top-actions" aria-label="Bản nháp">
+    <button class="btn ghost-light" id="btnSaveDraft" type="button">Lưu nháp</button>
+    <button class="btn ghost-light" id="btnOpenDraft" type="button">Mở nháp</button>
+    <button class="btn ghost-light" id="btnReset" type="button">Làm mới</button>
+    <input type="file" id="draftInput" accept="application/json,.json" hidden>
+  </nav>
 </header>
-<main class="wrap">
-  <div class="intro">
-    <div><div class="eyebrow">Property brochure builder</div><h1>Turn apartment details into a polished PDF.</h1><p>Enter the unit details, add photos, preview the brochure, then export a shareable PDF. Everything is processed in your browser.</p></div>
-  </div>
-  <div class="layout">
-    <section class="panel">
-      <div class="panel-head"><h2>Apartment details</h2><span class="eyebrow">01 / EDIT</span></div>
-      <div class="panel-body">
-        <form id="propertyForm">
-          <div class="section-title">Property overview</div>
-          <div class="fields">
-            <div class="field full"><label for="title">Listing title *</label><input id="title" name="title" placeholder="Bright 2-bedroom apartment with river view" required></div>
-            <div class="field"><label for="project">Building / project</label><input id="project" name="project" placeholder="The Metropole"></div>
-            <div class="field"><label for="unitType">Unit type</label><select id="unitType" name="unitType"><option>Studio</option><option>1 Bedroom</option><option selected>2 Bedrooms</option><option>3 Bedrooms</option><option>Duplex</option><option>Penthouse</option><option>Villa</option></select></div>
-            <div class="field"><label for="price">Monthly rent</label><input id="price" name="price" placeholder="35,000,000 VND / month"></div>
-            <div class="field"><label for="area">Area</label><input id="area" name="area" placeholder="85 m²"></div>
-            <div class="field"><label for="bedrooms">Bedrooms</label><input id="bedrooms" name="bedrooms" type="number" min="0" placeholder="2"></div>
-            <div class="field"><label for="bathrooms">Bathrooms</label><input id="bathrooms" name="bathrooms" type="number" min="0" placeholder="2"></div>
-            <div class="field"><label for="floor">Floor</label><input id="floor" name="floor" placeholder="18th floor"></div>
-            <div class="field"><label for="furnishing">Furnishing</label><select id="furnishing" name="furnishing"><option>Fully furnished</option><option>Partly furnished</option><option>Unfurnished</option><option>Serviced</option></select></div>
-            <div class="field"><label for="available">Availability</label><input id="available" name="available" placeholder="Available now"></div>
-            <div class="field"><label for="lease">Lease term</label><input id="lease" name="lease" value="6–12 month lease"></div>
-          </div>
-          <div class="section-title">Location & features</div>
-          <div class="fields">
-            <div class="field"><label for="street">Street</label><input id="street" name="street" placeholder="Nguyen Huu Canh"></div>
-            <div class="field"><label for="ward">Ward</label><input id="ward" name="ward" placeholder="Ward 22"></div>
-            <div class="field"><label for="district">District / city</label><input id="district" name="district" placeholder="Binh Thanh, Ho Chi Minh City"></div>
-            <div class="field"><label for="view">View / orientation</label><input id="view" name="view" placeholder="River view, east-facing"></div>
-            <div class="field full"><label for="amenities">Building amenities</label><textarea id="amenities" name="amenities" placeholder="Swimming pool, gym, gardens, supermarket, restaurants..."></textarea></div>
-            <div class="field full"><label for="features">Apartment features</label><textarea id="features" name="features" placeholder="Balcony, kitchen island, washer and dryer, large windows..."></textarea></div>
-            <div class="field full"><label for="description">Description</label><textarea id="description" name="description" placeholder="Describe the atmosphere, layout, natural light, and what makes this unit special."></textarea></div>
-          </div>
-          <div class="section-title">Rental terms & contact</div>
-          <div class="fields">
-            <div class="field"><label for="deposit">Deposit</label><input id="deposit" name="deposit" placeholder="2 months"></div>
-            <div class="field"><label for="payment">Payment terms</label><input id="payment" name="payment" placeholder="Monthly, paid to owner"></div>
-            <div class="field"><label for="utilities">Utilities / extra fees</label><input id="utilities" name="utilities" placeholder="Management fee excluded"></div>
-            <div class="field"><label for="pets">Pets</label><select id="pets" name="pets"><option>Not specified</option><option>Pets allowed</option><option>No pets</option><option>Subject to landlord approval</option></select></div>
-            <div class="field"><label for="contactName">Contact name</label><input id="contactName" name="contactName" value="Eddie Tran"></div>
-            <div class="field"><label for="contact">Zalo / WhatsApp</label><input id="contact" name="contact" value="+84 86 846 4937"></div>
-            <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" value="tranuy798@gmail.com"></div>
-            <div class="field full"><label for="notes">Additional notes</label><textarea id="notes" name="notes" placeholder="Anything else a prospective tenant should know."></textarea></div>
-          </div>
-          <div class="section-title">Property photos</div>
-          <div class="upload">
-            <strong>Add apartment photos</strong>
-            <div class="hint">Select multiple JPG, PNG or WebP images. Photos stay on this device and are embedded in the PDF.</div>
-            <input id="photoInput" type="file" accept="image/*" multiple>
-          </div>
-          <div id="photoList" class="photo-list"></div>
-          <div class="hint">Use the arrows to reorder photos. The first photo is used as the cover image.</div>
-          <div class="footer-note">Privacy: this page does not upload your property details or photos to a server. Refreshing the page clears the current session.</div>
-        </form>
+
+<div class="banner" id="restoreBanner" hidden>
+  <span id="restoreText">Có bản nháp đã lưu trên trình duyệt này.</span>
+  <span class="banner-actions"><button class="btn small" id="btnRestore" type="button">Khôi phục</button><button class="btn small ghost" id="btnDiscardRestore" type="button">Bỏ qua</button></span>
+</div>
+
+<main id="main" class="layout">
+  <div class="work">
+
+    <!-- BUOC 1: DAN THONG TIN -->
+    <section class="step" id="step-paste" aria-labelledby="h-paste">
+      <div class="step-head"><span class="step-no">1</span><h2 id="h-paste">Dán thông tin căn hộ vào đây</h2></div>
+      <p class="step-lead">Dán mô tả thô (tiếng Việt hoặc tiếng Anh) từ Zalo, Facebook hay ghi chú. Ứng dụng sẽ tự điền các ô bên dưới để bạn kiểm tra lại.</p>
+      <textarea id="pasteBox" class="paste" rows="6" placeholder="Ví dụ: Cho thuê căn 2PN tại Masteri Thảo Điền, diện tích 75m2, tầng 18, đầy đủ nội thất, giá 28 triệu/tháng. Có ban công nhìn sông, hồ bơi, phòng gym, gần Metro. Liên hệ Eddie qua Zalo."></textarea>
+      <div class="row-actions">
+        <button class="btn primary" id="btnParse" type="button">Tách thông tin tự động</button>
+        <button class="btn ghost" id="btnSample" type="button">Dùng ví dụ mẫu</button>
+        <button class="btn ghost" id="btnClearPaste" type="button">Xóa ô dán</button>
       </div>
+      <div class="parse-summary" id="parseSummary" hidden aria-live="polite"></div>
     </section>
-    <aside class="preview-sticky">
-      <section class="panel">
-        <div class="panel-head"><h2>Live brochure preview</h2><span class="eyebrow">02 / PREVIEW</span></div>
-        <div class="panel-body">
-          <div class="preview">
-            <div class="cover-preview" id="cover">
-              <img id="coverImage" alt="" hidden>
-              <div class="cover-brand">EDt REAL ESTATE</div>
-              <div class="cover-copy"><div class="cover-price" id="pPrice">MONTHLY RENT</div><h3 id="pTitle">Your apartment title</h3><div class="cover-location" id="pLocation">Location will appear here</div></div>
-            </div>
-            <div class="preview-content">
-              <div id="pProject" class="eyebrow">PROPERTY DETAILS</div>
-              <div class="stat-grid">
-                <div class="stat"><b id="pType">2 Bedrooms</b><span>Type</span></div>
-                <div class="stat"><b id="pArea">—</b><span>Area</span></div>
-                <div class="stat"><b id="pBath">—</b><span>Bathrooms</span></div>
-              </div>
-              <h4>About this apartment</h4><p id="pDescription">Your property description will appear here.</p>
-              <h4>Features & amenities</h4><p id="pFeatures">Add apartment features and building amenities.</p>
-              <div class="preview-photos" id="previewPhotos"></div>
-              <h4>Rental terms</h4><p id="pTerms">Lease term and rental terms will appear here.</p>
-              <h4>Contact</h4><p id="pContact">Eddie Tran · +84 86 846 4937</p>
-            </div>
+
+    <!-- BUOC 2: THONG TIN CAN HO -->
+    <section class="step" id="step-form" aria-labelledby="h-form">
+      <div class="step-head"><span class="step-no">2</span><h2 id="h-form">Thông tin căn hộ</h2></div>
+      <p class="step-lead">Chỉ cần tên dự án (hoặc loại căn hộ) và giá thuê là đủ để tạo PDF. Các ô khác không bắt buộc, ô nào trống sẽ không xuất hiện trong PDF.</p>
+      <form id="listingForm" autocomplete="off" novalidate>
+        <fieldset class="group">
+          <legend>Thông tin cơ bản</legend>
+          <div class="grid">
+            <div class="field span-2"><label for="f-project">Tên dự án / tòa nhà</label><input id="f-project" data-field="project" placeholder="Masteri Thảo Điền"></div>
+            <div class="field"><label for="f-propertyType">Loại căn hộ</label><select id="f-propertyType" data-field="propertyType"></select></div>
+            <div class="field" id="wrap-propertyTypeOther" hidden><label for="f-propertyTypeOther">Loại khác</label><input id="f-propertyTypeOther" data-field="propertyTypeOther" placeholder="Officetel, nhà phố…"></div>
+            <div class="field"><label for="f-area">Diện tích (m²)</label><input id="f-area" data-field="area" inputmode="decimal" placeholder="75"></div>
+            <div class="field"><label for="f-floor">Tầng</label><input id="f-floor" data-field="floor" placeholder="18 hoặc Tầng cao"></div>
+            <div class="field"><label for="f-district">Khu vực / quận</label><input id="f-district" data-field="district" placeholder="Thảo Điền, TP. Thủ Đức"></div>
+            <div class="field span-2"><label for="f-address">Địa chỉ</label><input id="f-address" data-field="address" placeholder="159 Xa lộ Hà Nội, P. Thảo Điền, TP. Thủ Đức"></div>
           </div>
-          <div class="preview-actions">
-            <button class="btn dark" id="exportBtn" type="button">Download PDF</button>
-            <button class="btn" id="saveBtn" type="button">Save draft on device</button>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Giá thuê</legend>
+          <div class="grid">
+            <div class="field"><label for="f-price">Giá thuê</label><input id="f-price" data-field="price" inputmode="decimal" placeholder="28.000.000 hoặc 28tr"><div class="hint" id="priceHint"></div></div>
+            <div class="field"><span class="label" id="lbl-currency">Đơn vị tiền tệ</span>
+              <div class="seg" role="radiogroup" aria-labelledby="lbl-currency" data-field="currency">
+                <button type="button" role="radio" data-value="VND">VND</button><button type="button" role="radio" data-value="USD">USD</button>
+              </div></div>
+            <div class="field"><label for="f-period">Kỳ thuê</label><select id="f-period" data-field="period"></select></div>
+            <div class="field"><label for="f-furnishing">Nội thất</label><select id="f-furnishing" data-field="furnishing"></select></div>
+            <div class="field"><label for="f-leaseTerm">Thời hạn thuê</label><input id="f-leaseTerm" data-field="leaseTerm" placeholder="Tối thiểu 12 tháng"></div>
+            <div class="field"><label for="f-deposit">Tiền đặt cọc</label><input id="f-deposit" data-field="deposit" placeholder="2 tháng"></div>
           </div>
-          <div class="status" id="status" aria-live="polite"></div>
-        </div>
-      </section>
-    </aside>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Đặc điểm căn hộ</legend>
+          <div class="grid">
+            <div class="field"><label for="f-bedrooms">Phòng ngủ</label><input id="f-bedrooms" data-field="bedrooms" inputmode="numeric" placeholder="2"></div>
+            <div class="field"><label for="f-bathrooms">Phòng tắm</label><input id="f-bathrooms" data-field="bathrooms" inputmode="numeric" placeholder="2"></div>
+            <div class="field"><label for="f-balcony">Ban công</label><input id="f-balcony" data-field="balcony" placeholder="Có / Ban công rộng"></div>
+            <div class="field"><label for="f-view">Hướng nhìn</label><input id="f-view" data-field="view" placeholder="Nhìn sông, hướng Đông Nam"></div>
+            <div class="field"><label for="f-kitchen">Bếp</label><input id="f-kitchen" data-field="kitchen" placeholder="Bếp mở"></div>
+            <div class="field"><label for="f-livingRoom">Phòng khách</label><input id="f-livingRoom" data-field="livingRoom" placeholder="Phòng khách rộng"></div>
+            <div class="field span-2"><label for="f-otherFeatures">Tiện nghi khác</label><input id="f-otherFeatures" data-field="otherFeatures" placeholder="Máy giặt, máy lạnh, bồn tắm"><div class="hint">Ngăn cách bằng dấu phẩy.</div></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Tiện ích</legend>
+          <div class="chips" id="amenityChips" role="group" aria-label="Tiện ích"></div>
+          <button class="linkish" id="btnMoreAmenities" type="button" aria-expanded="false">Xem thêm tiện ích</button>
+          <div class="chips more" id="amenityChipsMore" hidden></div>
+          <div class="add-custom">
+            <label for="customAmenity" class="label">Thêm tiện ích khác</label>
+            <div class="inline"><input id="customAmenity" placeholder="Ví dụ: Sân bóng rổ"><button class="btn" id="btnAddAmenity" type="button">Thêm</button></div>
+            <div class="chips" id="customChips"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Mô tả</legend>
+          <div class="grid">
+            <div class="field span-2"><label for="f-headline">Tiêu đề ngắn / điểm nổi bật</label><input id="f-headline" data-field="headline" placeholder="Căn hộ view sông tuyệt đẹp"></div>
+            <div class="field span-2"><label for="f-description">Mô tả căn hộ</label><textarea id="f-description" data-field="description" rows="5" placeholder="Căn hộ sáng, sạch, thoáng. Phòng khách rộng với cửa sổ lớn…"></textarea></div>
+            <div class="field span-2"><label for="f-suitableFor">Phù hợp với</label><input id="f-suitableFor" data-field="suitableFor" placeholder="Chuyên gia nước ngoài, gia đình nhỏ"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Liên hệ</legend>
+          <div class="grid">
+            <div class="field"><label for="f-contactName">Người liên hệ</label><input id="f-contactName" data-field="contactName" autocomplete="name" placeholder="Tên của bạn"></div>
+            <div class="field"><label for="f-contactChannel">Kênh liên hệ</label><select id="f-contactChannel" data-field="contactChannel"></select></div>
+            <div class="field"><label for="f-contactPhone">Zalo / WhatsApp / SĐT</label><input id="f-contactPhone" data-field="contactPhone" inputmode="tel" autocomplete="tel" placeholder="+84 …"></div>
+            <div class="field"><label for="f-contactEmail">Email</label><input id="f-contactEmail" data-field="contactEmail" type="email" inputmode="email" autocomplete="email" placeholder="ban@email.com"></div>
+          </div>
+          <label class="check"><input type="checkbox" id="rememberContact"> Ghi nhớ thông tin liên hệ trên thiết bị này</label>
+          <p class="hint">Chỉ lưu trong trình duyệt của máy này để lần sau không phải nhập lại. PDF không bao giờ tự thêm thông tin liên hệ bạn không nhập.</p>
+        </fieldset>
+
+        <details class="group extra" id="extraInfo">
+          <summary>Thông tin bổ sung</summary>
+          <div class="grid">
+            <div class="field"><label for="f-availability">Thời gian dọn vào</label><input id="f-availability" data-field="availability" placeholder="Dọn vào ở ngay / Từ 15/11"></div>
+            <div class="field"><label for="f-payment">Thanh toán</label><input id="f-payment" data-field="payment" placeholder="Thanh toán hàng tháng"></div>
+            <div class="field span-2"><label for="f-utilities">Phí & điện nước</label><input id="f-utilities" data-field="utilities" placeholder="Đã bao gồm phí quản lý"></div>
+            <div class="field"><label for="f-petPolicy">Thú cưng</label><select id="f-petPolicy" data-field="petPolicy"></select></div>
+            <div class="field span-2"><label for="f-notes">Ghi chú thêm</label><textarea id="f-notes" data-field="notes" rows="3" placeholder="Thông tin khác khách thuê cần biết"></textarea></div>
+          </div>
+        </details>
+      </form>
+    </section>
+
+    <!-- BUOC 3: HINH ANH -->
+    <section class="step" id="step-photos" aria-labelledby="h-photos">
+      <div class="step-head"><span class="step-no">3</span><h2 id="h-photos">Hình ảnh căn hộ</h2></div>
+      <label class="dropzone" id="dropzone" for="photoInput">
+        <span class="dz-title">Chọn ảnh hoặc kéo thả vào đây</span>
+        <span class="dz-sub">JPG, PNG, WebP. Có thể chọn nhiều ảnh cùng lúc. Ảnh chỉ được xử lý trên máy bạn, không tải lên máy chủ.</span>
+      </label>
+      <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple class="visually-hidden">
+      <div class="photo-status" id="photoStatus" aria-live="polite"></div>
+      <ul class="photo-errors" id="photoErrors" hidden></ul>
+      <ol class="photo-grid" id="photoGrid" aria-label="Danh sách ảnh"></ol>
+      <p class="hint" id="photoHint" hidden>Thứ tự ở đây là thứ tự trong PDF. Kéo thả (máy tính) hoặc dùng nút Trước / Sau để sắp xếp. Bỏ chọn "Đưa vào PDF" để ẩn ảnh khỏi PDF.</p>
+    </section>
+
+    <!-- BUOC 4: BAN TIENG ANH -->
+    <section class="step" id="step-english" aria-labelledby="h-english">
+      <div class="step-head"><span class="step-no">4</span><h2 id="h-english">Kiểm tra bản tiếng Anh</h2></div>
+      <p class="step-lead">PDF gửi khách được viết bằng tiếng Anh. Ứng dụng dịch theo từ điển thuật ngữ bất động sản. Câu nào không chắc chắn sẽ được đánh dấu "Cần dịch" thay vì dịch bừa. Bạn có thể sửa trực tiếp ô tiếng Anh.</p>
+      <div class="en-tools">
+        <div class="field compact"><span class="label" id="lbl-proper">Tên riêng trong PDF</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lbl-proper" data-option="properNouns">
+            <button type="button" role="radio" data-value="keep">Giữ dấu (Thảo Điền)</button><button type="button" role="radio" data-value="strip">Bỏ dấu (Thao Dien)</button>
+          </div></div>
+        <button class="btn" id="btnOnlineTranslate" type="button" hidden>Dịch trực tuyến các mục cần dịch</button>
+      </div>
+      <div class="en-list" id="enList"><p class="empty">Chưa có nội dung cần dịch. Hãy dán thông tin hoặc điền form ở bước 1 và 2.</p></div>
+      <p class="hint">Loại căn hộ, nội thất, tiện ích chọn sẵn và giá thuê được dịch chính xác theo từ điển nên không cần kiểm tra.</p>
+    </section>
+
+    <section class="privacy-note">
+      <h3>Dữ liệu của bạn</h3>
+      <p>Mọi thông tin và hình ảnh được xử lý ngay trong trình duyệt. Ứng dụng không có máy chủ và không gửi dữ liệu đi đâu, trừ khi bạn tự bấm "Dịch trực tuyến" và đồng ý.</p>
+      <label class="check"><input type="checkbox" id="autosaveToggle"> Tự động lưu bản nháp (kể cả ảnh) trong trình duyệt này</label>
+      <p class="hint">Bản nháp sẽ nằm lại trên thiết bị này cho đến khi bạn bấm "Làm mới". Không nên bật trên máy dùng chung.</p>
+    </section>
   </div>
+
+  <!-- BUOC 5: MAU PDF & XEM TRUOC -->
+  <aside class="proof" id="step-proof" aria-labelledby="h-proof">
+    <div class="proof-inner">
+      <div class="step-head light"><span class="step-no">5</span><h2 id="h-proof">Chọn mẫu PDF &amp; xem trước</h2></div>
+      <div class="tpl-cards" id="tplCards" role="radiogroup" aria-label="Chọn mẫu PDF"></div>
+      <div class="proof-options">
+        <div class="field compact"><span class="label light" id="lbl-density">Ảnh trong thư viện</span>
+          <div class="seg dark" role="radiogroup" aria-labelledby="lbl-density" data-option="galleryDensity">
+            <button type="button" role="radio" data-value="large">Lớn (2–3 ảnh/trang)</button><button type="button" role="radio" data-value="compact">Gọn (4–6 ảnh/trang)</button>
+          </div></div>
+        <div class="field compact"><span class="label light" id="lbl-quality">Chất lượng ảnh</span>
+          <div class="seg dark" role="radiogroup" aria-labelledby="lbl-quality" data-option="imageQuality">
+            <button type="button" role="radio" data-value="standard">Tiêu chuẩn</button><button type="button" role="radio" data-value="high">Cao (file lớn hơn)</button>
+          </div></div>
+      </div>
+      <div class="export-row">
+        <button class="btn primary big" id="btnExport" type="button">Xuất PDF</button>
+        <button class="btn ghost-light" id="btnZoom" type="button">Xem lớn</button>
+      </div>
+      <div class="export-status" id="exportStatus" aria-live="polite"></div>
+      <div class="preview-head"><span id="previewLabel">Xem trước</span><span class="preview-note">Bản xem trước dùng cùng bố cục và font với PDF.</span></div>
+      <div class="pages" id="pages"><p class="empty light">Nhập tên dự án hoặc loại căn hộ để xem trước brochure.</p></div>
+    </div>
+  </aside>
 </main>
-<div class="toast" id="toast" role="status"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-const form = document.getElementById('propertyForm');
-const photoInput = document.getElementById('photoInput');
-const photoList = document.getElementById('photoList');
-const toast = document.getElementById('toast');
-let photos = [];
-let toastTimer;
-function val(id){return (document.getElementById(id)?.value || '').trim()}
-function showToast(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.style.display='none',2800)}
-function locationText(){return [val('street'),val('ward'),val('district')].filter(Boolean).join(', ')}
-function updatePreview(){
-  const title=val('title')||'Your apartment title';
-  document.getElementById('pTitle').textContent=title;
-  document.getElementById('pPrice').textContent=val('price')||'MONTHLY RENT';
-  document.getElementById('pLocation').textContent=locationText()||'Location will appear here';
-  document.getElementById('pProject').textContent=val('project')||'PROPERTY DETAILS';
-  document.getElementById('pType').textContent=val('unitType')||'—';
-  document.getElementById('pArea').textContent=val('area')||'—';
-  document.getElementById('pBath').textContent=val('bathrooms')||'—';
-  document.getElementById('pDescription').textContent=val('description')||'Your property description will appear here.';
-  document.getElementById('pFeatures').textContent=[val('features'),val('amenities')].filter(Boolean).join('\\n\\n')||'Add apartment features and building amenities.';
-  document.getElementById('pTerms').textContent=[val('lease'),val('available')?'Availability: '+val('available'):'',val('deposit')?'Deposit: '+val('deposit'):'',val('payment')?'Payment: '+val('payment'):'',val('utilities')?'Extra fees: '+val('utilities'):'',val('pets')!=='Not specified'?'Pets: '+val('pets'):''].filter(Boolean).join('\\n')||'Lease term and rental terms will appear here.';
-  document.getElementById('pContact').textContent=[val('contactName'),val('contact')?'Zalo / WhatsApp: '+val('contact'):'',val('email')].filter(Boolean).join('\\n');
-  const cover=document.getElementById('coverImage');
-  if(photos.length){cover.src=photos[0].url;cover.hidden=false}else{cover.removeAttribute('src');cover.hidden=true}
-  const pp=document.getElementById('previewPhotos');pp.innerHTML='';
-  photos.slice(1,5).forEach(p=>{const img=document.createElement('img');img.src=p.url;img.alt=p.name;pp.appendChild(img)});
-}
-function renderPhotos(){
-  photoList.innerHTML='';
-  if(!photos.length){photoList.innerHTML='<div class="empty">No photos added yet.</div>';updatePreview();return}
-  photos.forEach((p,i)=>{
-    const card=document.createElement('div');card.className='photo';
-    const img=document.createElement('img');img.src=p.url;img.alt=p.name;
-    if(i===0){const tag=document.createElement('span');tag.className='cover-tag';tag.textContent='COVER';card.appendChild(tag)}
-    card.appendChild(img);
-    const controls=document.createElement('div');controls.className='photo-controls';
-    const up=document.createElement('button');up.type='button';up.textContent='←';up.title='Move earlier';up.disabled=i===0;up.onclick=()=>movePhoto(i,-1);
-    const down=document.createElement('button');down.type='button';down.textContent='→';down.title='Move later';down.disabled=i===photos.length-1;down.onclick=()=>movePhoto(i,1);
-    const del=document.createElement('button');del.type='button';del.textContent='×';del.title='Remove photo';del.onclick=()=>{photos.splice(i,1);renderPhotos()};
-    controls.append(up,down,del);card.appendChild(controls);photoList.appendChild(card);
-  });updatePreview();
-}
-function movePhoto(i,d){const j=i+d;if(j<0||j>=photos.length)return;[photos[i],photos[j]]=[photos[j],photos[i]];renderPhotos()}
-photoInput.addEventListener('change',async e=>{
-  const files=Array.from(e.target.files||[]);let skipped=0;
-  for(const file of files){
-    if(!file.type.startsWith('image/')){skipped++;continue}
-    try{const data=await resizeImage(file,1800,.86);photos.push({name:file.name,data,url:URL.createObjectURL(data),type:'image/jpeg'})}catch(err){skipped++}
-  }
-  renderPhotos();photoInput.value='';
-  showToast(`${files.length-skipped} photo(s) added${skipped?`; ${skipped} skipped`:''}.`);
-});
-function resizeImage(file,maxSide,quality){return new Promise((resolve,reject)=>{
-  const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{
-    const img=new Image();img.onerror=reject;img.onload=()=>{
-      const scale=Math.min(1,maxSide/Math.max(img.width,img.height));const c=document.createElement('canvas');
-      c.width=Math.max(1,Math.round(img.width*scale));c.height=Math.max(1,Math.round(img.height*scale));
-      c.getContext('2d').drawImage(img,0,0,c.width,c.height);c.toBlob(b=>b?resolve(b):reject(new Error('Image conversion failed')),'image/jpeg',quality);
-    };img.src=reader.result;
-  };reader.readAsDataURL(file);
-})}
-function dataURL(blob){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(blob)})}
-function wrapText(doc,text,maxWidth){return doc.splitTextToSize(String(text||''),maxWidth)}
-async function exportPDF(){
-  if(!window.jspdf?.jsPDF){showToast('PDF library did not load. Check your internet connection and try again.');return}
-  if(!val('title')){document.getElementById('title').focus();showToast('Please add a listing title first.');return}
-  const {jsPDF}=window.jspdf;const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4',compress:true});
-  const W=210,H=297,M=16,CW=W-M*2;let page=1;
-  const green=[35,60,50],gold=[185,139,85],ink=[31,43,36],muted=[94,106,98],pale=[242,245,242];
-  function footer(){doc.setDrawColor(220,227,222);doc.line(M,H-13,W-M,H-13);doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(...muted);doc.text('EDt REAL ESTATE',M,H-7);doc.text(String(page),W-M,H-7,{align:'right'})}
-  function newPage(){footer();doc.addPage();page++;return 18}
-  function section(title,y){doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(...gold);doc.text(title.toUpperCase(),M,y);doc.setDrawColor(220,227,222);doc.line(M,y+2,W-M,y+2);return y+9}
-  function addParagraph(label,text,y){
-    if(!text)return y;
-    const labelH=5;doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(...ink);
-    const lines=wrapText(doc,label,CW);const bodyLines=(()=>{doc.setFont('helvetica','normal');doc.setFontSize(9);return wrapText(doc,text,CW)})();
-    const need=labelH+bodyLines.length*4.4+4;
-    if(y+need>H-20)y=newPage();
-    doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(...ink);doc.text(lines,M,y);y+=labelH;
-    doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(...muted);
-    for(const line of bodyLines){if(y>H-19)y=newPage();doc.text(line,M,y);y+=4.4}
-    return y+4;
-  }
-  // Cover page
-  doc.setFillColor(...green);doc.rect(0,0,W,H,'F');
-  doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);doc.text('EDt REAL ESTATE',M,20);
-  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(221,230,222);doc.text('APARTMENT DETAILS',M,27);
-  let coverY=38;
-  if(photos.length){
-    try{const imageData=await dataURL(photos[0].data);const props=doc.getImageProperties(imageData);const box={x:M,y:coverY,w:CW,h:108};const scale=Math.max(box.w/props.width,box.h/props.height);const iw=props.width*scale,ih=props.height*scale;const x=box.x+(box.w-iw)/2,y=box.y+(box.h-ih)/2;doc.saveGraphicsState();doc.rect(box.x,box.y,box.w,box.h);doc.clip();doc.addImage(imageData,'JPEG',x,y,iw,ih);doc.restoreGraphicsState();coverY+=118}catch(e){coverY+=10}
-  }else{doc.setFillColor(65,87,73);doc.roundedRect(M,coverY,CW,75,3,3,'F');doc.setTextColor(223,231,220);doc.setFontSize(12);doc.text('PROPERTY PHOTO',W/2,coverY+39,{align:'center'});coverY+=85}
-  doc.setTextColor(242,201,149);doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text(val('price')||'RENTAL PRICE UPON REQUEST',M,coverY+5);
-  doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont('helvetica','bold');
-  let titleLines=wrapText(doc,val('title'),CW);if(titleLines.length>3)titleLines=titleLines.slice(0,3);
-  doc.text(titleLines,M,coverY+18);let y=coverY+20+titleLines.length*9;
-  doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(221,230,222);
-  const loc=locationText()||val('project')||'Ho Chi Minh City';doc.text(wrapText(doc,loc,CW).slice(0,2),M,y+2);y+=17;
-  const facts=[['TYPE',val('unitType')],['AREA',val('area')],['BEDROOMS',val('bedrooms')],['BATHROOMS',val('bathrooms')]];
-  const gap=3,bw=(CW-gap*3)/4;facts.forEach((f,i)=>{const x=M+i*(bw+gap);doc.setFillColor(54,76,63);doc.roundedRect(x,y,bw,22,2,2,'F');doc.setFontSize(7);doc.setTextColor(190,207,192);doc.text(f[0],x+3,y+7);doc.setFontSize(9);doc.setTextColor(255,255,255);doc.text(wrapText(doc,f[1]||'—',bw-6).slice(0,2),x+3,y+14)});
-  doc.setFontSize(8);doc.setTextColor(190,207,192);doc.text('Contact '+(val('contactName')||'Eddie Tran')+'  ·  '+(val('contact')||''),M,H-22);
-  doc.setFontSize(8);doc.text(val('email'),M,H-17);footer();
-  // Details page
-  doc.addPage();page++;let yy=18;
-  doc.setTextColor(...green);doc.setFont('helvetica','bold');doc.setFontSize(22);doc.text('Property details',M,yy);yy+=12;
-  yy=section('Overview',yy);
-  yy=addParagraph('Building / project',val('project'),yy);
-  yy=addParagraph('Address',locationText(),yy);
-  yy=addParagraph('Floor',val('floor'),yy);
-  yy=addParagraph('View / orientation',val('view'),yy);
-  yy=addParagraph('Furnishing',val('furnishing'),yy);
-  yy=addParagraph('Availability',val('available'),yy);
-  yy=addParagraph('Lease term',val('lease'),yy);
-  yy=addParagraph('Description',val('description'),yy);
-  yy=section('Features & amenities',yy+2);
-  yy=addParagraph('Apartment features',val('features'),yy);
-  yy=addParagraph('Building amenities',val('amenities'),yy);
-  yy=section('Rental terms',yy+2);
-  yy=addParagraph('Monthly rent',val('price'),yy);
-  yy=addParagraph('Deposit',val('deposit'),yy);
-  yy=addParagraph('Payment terms',val('payment'),yy);
-  yy=addParagraph('Utilities / extra fees',val('utilities'),yy);
-  yy=addParagraph('Pets',val('pets')==='Not specified'?'':val('pets'),yy);
-  yy=addParagraph('Additional notes',val('notes'),yy);
-  yy=section('Contact',yy+2);
-  yy=addParagraph('Contact person',val('contactName'),yy);
-  yy=addParagraph('Zalo / WhatsApp',val('contact'),yy);
-  yy=addParagraph('Email',val('email'),yy);
-  footer();
-  // Gallery: one or two photos per page with consistent margins
-  if(photos.length>1){
-    let index=1;
-    while(index<photos.length){
-      doc.addPage();page++;doc.setTextColor(...green);doc.setFont('helvetica','bold');doc.setFontSize(20);doc.text('Apartment gallery',M,19);
-      doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(...muted);doc.text('Photo '+(index+1)+' of '+photos.length,M,26);
-      let gy=34;
-      for(let slot=0;slot<2&&index<photos.length;slot++,index++){
-        try{
-          const d=await dataURL(photos[index].data);const pr=doc.getImageProperties(d);
-          const box={x:M,y:gy,w:CW,h:105};const sc=Math.min(box.w/pr.width,box.h/pr.height);const iw=pr.width*sc,ih=pr.height*sc;
-          doc.setFillColor(...pale);doc.roundedRect(box.x,box.y,box.w,box.h,2,2,'F');
-          doc.addImage(d,'JPEG',box.x+(box.w-iw)/2,box.y+(box.h-ih)/2,iw,ih);
-          doc.setFontSize(8);doc.setTextColor(...muted);doc.text(photos[index].name.slice(0,90),M,gy+110);
-          gy+=125;
-        }catch(e){/* skip an image that cannot be embedded */}
-      }
-      footer();
-    }
-  }
-  const safe=(val('title')||'apartment').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)||'apartment';
-  doc.save(safe+'-property-brochure.pdf');
-  document.getElementById('status').textContent='Your PDF has been generated. Check your downloads.';
-  showToast('PDF ready to download.');
-}
-document.getElementById('exportBtn').addEventListener('click',exportPDF);
-document.getElementById('exportTop').addEventListener('click',exportPDF);
-form.addEventListener('input',updatePreview);
-form.addEventListener('change',updatePreview);
-document.getElementById('resetBtn').addEventListener('click',()=>{
-  if(!confirm('Clear all fields and remove photos?'))return;
-  form.reset();photos.forEach(p=>URL.revokeObjectURL(p.url));photos=[];renderPhotos();updatePreview();showToast('Form cleared.');
-});
-document.getElementById('saveBtn').addEventListener('click',async()=>{
-  try{
-    const fields={};new FormData(form).forEach((v,k)=>{if(k!=='photoInput')fields[k]=v});
-    const savedPhotos=[];for(const p of photos)savedPhotos.push({name:p.name,data:await dataURL(p.data)});
-    const blob=new Blob([JSON.stringify({fields,photos:savedPhotos},null,2)],{type:'application/json'});
-    const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=(val('title')||'apartment').replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'-draft.json';a.click();URL.revokeObjectURL(url);
-    showToast('Draft file downloaded. Keep it to restore later.');
-  }catch(e){showToast('Could not save draft. Try using fewer or smaller photos.')}
-});
-renderPhotos();updatePreview();
-</script>
+
+<div class="mobile-bar" id="mobileBar">
+  <button class="btn ghost-light" id="btnMobilePreview" type="button">Xem trước</button>
+  <button class="btn primary" id="btnMobileExport" type="button">Xuất PDF</button>
+</div>
+
+<dialog class="modal" id="modal" aria-labelledby="modalTitle">
+  <form method="dialog" class="modal-box">
+    <h3 id="modalTitle"></h3>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-actions" id="modalActions"></div>
+  </form>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Xem ảnh lớn">
+  <div class="lb-box">
+    <img id="lbImg" alt="">
+    <div class="lb-bar"><span id="lbCaption"></span><span class="lb-actions"><button class="btn small ghost-light" id="lbPrev" type="button">Ảnh trước</button><button class="btn small ghost-light" id="lbNext" type="button">Ảnh sau</button><button class="btn small" id="lbClose" type="button">Đóng</button></span></div>
+  </div>
+</dialog>
+
+<dialog class="zoom" id="zoomDialog" aria-label="Xem trước cỡ lớn">
+  <div class="zoom-bar"><span>Xem trước cỡ lớn</span><button class="btn small" id="zoomClose" type="button">Đóng</button></div>
+  <div class="zoom-pages" id="zoomPages"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript><div class="noscript">Ứng dụng cần bật JavaScript để hoạt động.</div></noscript>
+
+<!-- Thu vien PDF (ban luu san trong du an; neu thieu se tu tai tu CDN) -->
+<script src="assets/vendor/jspdf.umd.min.js"></script>
+<script src="assets/js/fonts-data.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/dictionary.js"></script>
+<script src="assets/js/translator.js"></script>
+<script src="assets/js/parser.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/images.js"></script>
+<script src="assets/js/content.js"></script>
+<script src="assets/js/templates.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
